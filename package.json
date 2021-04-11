@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "tailwindcss": "^2.1.1"
+  },
+  "scripts": {
+    "build": "postcss ./assets/src/style.css -o ./assets/dist/style.css",
+    "prod": "NODE_ENV=production postcss ./assets/src/style.css -o ./assets/dist/style.css"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "postcss-nested": "^5.0.5"
+  }
+}

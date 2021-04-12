@@ -45,6 +45,10 @@ class UsedCarMarketPlace {
 
     add_filter( 'rwmb_meta_boxes', array( $this, 'custom_fields' ) );
 
+    add_filter( 'rwmb_meta_boxes', array( $this, 'settings_custom_fields' ) );
+
+    add_filter( 'mb_settings_pages', array( $this, 'add_settings_page' ) );
+
     add_action( 'template_include', array( $this, 'add_cpt_template' ) );
 
     add_action( 'wp_enqueue_scripts', array( $this, 'add_styles_scripts' ) );
@@ -79,6 +83,23 @@ class UsedCarMarketPlace {
    */  
   function custom_fields( $meta_boxes ) {
     require('includes/custom/custom-fields.php'); 
+    return $meta_boxes;
+  }
+
+  /**
+   * Create custom fields
+   */  
+  public function settings_custom_fields( $meta_boxes ) {
+    require('includes/back/settings-custom-fields.php'); 
+    return $meta_boxes;
+  }
+
+  /**
+   * Add a settings page
+   */  
+  public function add_settings_page( $settings_pages ) {
+    require('includes/back/add-settings-page.php');
+    return $settings_pages;
   }
 
   /**

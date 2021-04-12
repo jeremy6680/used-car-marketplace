@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-  	content: ['./templates/single-car.php']
+  	content: ['./templates/*.php']
   },
   darkMode: false, // or 'media' or 'class'
   theme: {

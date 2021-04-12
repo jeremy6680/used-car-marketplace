@@ -4,111 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "796d85c9226edda5600cacf6336f1975",
+    "content-hash": "dd777537eb53986beeb05414ed0c4617",
     "packages": [
         {
-            "name": "johnbillion/extended-cpts",
-            "version": "4.5.2",
+            "name": "composer/installers",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/johnbillion/extended-cpts.git",
-                "reference": "59ce9f4e0422512eec6f698ccba4a6a81b018fdb"
+                "url": "https://github.com/composer/installers.git",
+                "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnbillion/extended-cpts/zipball/59ce9f4e0422512eec6f698ccba4a6a81b018fdb",
-                "reference": "59ce9f4e0422512eec6f698ccba4a6a81b018fdb",
+                "url": "https://api.github.com/repos/composer/installers/zipball/1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
+                "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
                 "shasum": ""
             },
             "require": {
-                "php": "^7 | ^8"
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
             },
             "require-dev": {
-                "automattic/phpcs-neutron-standard": "1.6.0",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-                "johnbillion/falsey-assertequals-detector": "^2",
-                "phpcompatibility/phpcompatibility-wp": "^2",
-                "phpunit/phpunit": "^6",
-                "roots/wordpress": "^5.7.0",
-                "vlucas/phpdotenv": "^3",
-                "wp-cli/db-command": "^2.0",
-                "wp-coding-standards/wpcs": "2.3.0",
-                "wp-phpunit/wp-phpunit": "^5.7.0"
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
             },
-            "suggest": {
-                "seravo/wp-custom-bulk-actions": "Custom Bulk Actions",
-                "wpackagist-plugin/rewrite-testing": "Rewrite Rule Testing"
-            },
-            "type": "library",
+            "type": "composer-plugin",
             "extra": {
-                "wordpress-install-dir": "tests/wordpress"
-            },
-            "autoload": {
-                "psr-4": {
-                    "ExtCPTs\\Tests\\": "tests/phpunit"
-                },
-                "files": [
-                    "extended-cpts.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "John Blackbourn",
-                    "homepage": "https://johnblackbourn.com/"
-                }
-            ],
-            "description": "A library which provides extended functionality to WordPress custom post types and taxonomies.",
-            "homepage": "https://github.com/johnbillion/extended-cpts/",
-            "support": {
-                "issues": "https://github.com/johnbillion/extended-cpts/issues",
-                "source": "https://github.com/johnbillion/extended-cpts/tree/4.5.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/johnbillion",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-03-21T00:26:19+00:00"
-        },
-        {
-            "name": "wordplate/acf",
-            "version": "9.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wordplate/extended-acf.git",
-                "reference": "c2a8c48a1580b2a5e9978d3350ff8c3d4df3e115"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wordplate/extended-acf/zipball/c2a8c48a1580b2a5e9978d3350ff8c3d4df3e115",
-                "reference": "c2a8c48a1580b2a5e9978d3350ff8c3d4df3e115",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.4",
-                "squizlabs/php_codesniffer": "^3.5"
-            },
-            "type": "library",
-            "extra": {
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
-                    "dev-master": "9.1-dev"
+                    "dev-main": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "WordPlate\\Acf\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -116,34 +53,133 @@
             ],
             "authors": [
                 {
-                    "name": "Vincent Klaiber",
-                    "email": "hello@doubledip.se"
-                },
-                {
-                    "name": "Chris Andersson",
-                    "email": "hello@puredazzle.se"
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
                 }
             ],
-            "description": "Register advanced custom fields with object oriented PHP",
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
-                "acf",
-                "advanced",
-                "custom",
-                "fields",
-                "wordplate",
-                "wordpress"
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
             ],
             "support": {
-                "issues": "https://github.com/wordplate/extended-acf/issues",
-                "source": "https://github.com/wordplate/extended-acf/tree/9.1.0"
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.10.0"
             },
-            "time": "2020-12-01T20:53:45+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-01-14T11:07:16+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/meta-box",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/meta-box/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/meta-box.zip?timestamp=1615361425"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/meta-box/",
+            "time": "2021-03-10T07:30:25+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpackagist-plugin/meta-box": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

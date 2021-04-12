@@ -1,11 +1,7 @@
  <?php
 /**
- * The template for displaying all single posts.
+ * The template for displaying a single car
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Astra
- * @since 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,55 +10,65 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+<div class="container mx-auto px-4"> 
 
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
-
-	<div id="primary" <?php astra_primary_class(); ?>>
-
-		<?php astra_primary_content_top(); ?>
-    <div class="container mx-auto px-4"> 
-      <section class="py-12 px-4">
-        <div class="flex flex-wrap -mx-4">
+  <section class="py-12 px-4">
+    <div class="flex flex-wrap -mx-8">
+      <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
+        <h2 class="text-4xl mb-2 font-semibold font-heading"><?php the_title(); ?></h2>
+        <p class="mb-6"><?php echo rwmb_meta( 'price' ); ?> € <?php _e( '(Ex. Tax)', 'wpfc-cars' ) ?></p>
+        <p class="mb-8 text-gray-400 leading-relaxed"><?php echo rwmb_meta( 'description' ); ?></p>
+        <table class="w-full mb-6">
+          <tbody>
+            <tr class="border-t">
+              <td class="py-3">Brand</td>
+              <td class="text-right"><?php echo rwmb_meta( 'brand' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">Model</td>
+              <td class="text-right"><?php echo rwmb_meta( 'model' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">Year</td>
+              <td class="text-right"><?php echo rwmb_meta( 'year' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">KM</td>
+              <td class="text-right"><?php echo rwmb_meta( 'km' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">Weight</td>
+              <td class="text-right"><?php echo rwmb_meta( 'weight' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">Length</td>
+              <td class="text-right"><?php echo rwmb_meta( 'length' ); ?></td>
+            </tr>
+            <tr class="border-t">
+              <td class="py-3">Width</td>
+              <td class="text-right"><?php echo rwmb_meta( 'width' ); ?></td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="mailto:<?php echo rwmb_meta( 'email' ); ?>" class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded"><?php _e( 'Contact the owner', 'wpfc-cars' ) ?></a>
+      </div>
+      <div class="lg:w-1/2 px-8">
           <?php 
             $images = rwmb_meta( 'product_images', array( 'limit' => 1 ) );
             $image = reset( $images );
           ?>
-          <div class="lg:w-1/2 px-4 mb-4 lg:mb-0"><img class="rounded shadow" src="<?php echo $image['full_url']; ?>" alt=""></div>
-          <div class="lg:w-1/2 px-4">
-            <h2 class="text-4xl mb-4 font-semibold font-heading"><?php echo rwmb_meta( 'brand' ); ?></h2>
-            <p class="mb-6 text-gray-400 leading-relaxed"><?php echo rwmb_meta( 'description' ); ?></p>
-            <div class="mb-6">
-              <button class="inline-flex items-center justify-center h-8 w-8 mr-2 bg-gray-400 rounded-full"></button>
-              <button class="inline-flex items-center justify-center h-8 w-8 mr-2 bg-gray-300 rounded-full"></button>
-              <button class="inline-flex items-center justify-center h-8 w-8 mr-2 bg-gray-100 rounded-full"></button>
-            </div>
-            <div class="flex mb-6">
-              <span class="text-2xl">$<?php echo rwmb_meta( 'price' ); ?></span>
-              <div class="flex flex-wrap ml-4">
-                <div class="w-1/2">
-                  <input class="appearance-none block w-full py-2 px-4 leading-snug text-gray-700 bg-gray-50 focus:bg-white border border-gray-200 focus:border-gray-500 rounded md:rounded-r-none focus:outline-none" type="number" value="1">
-                </div>
-                <div class="w-1/2">
-                  <button class="inline-block w-full py-3 px-4 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded md:rounded-l-none">Buy</button>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t"><a class="text-indigo-600 hover:underline" href="#">Add to favorites</a></div>
-          </div>
+        <img class="mb-4 rounded shadow" src="<?php echo $image['full_url']; ?>" alt="">
+        <div class="flex flex-wrap -mx-2">
+          <?php 
+            $pictures = rwmb_meta( 'product_images', array( 'limit' => 3 ) );
+            $picture = reset( $pictures );
+            foreach ( $pictures as $picture ) { ?>
+              <div class="w-1/3 px-2"><img class="rounded shadow" src="<?php echo $picture['full_url']; ?>" alt=""></div>
+            <?php } ?>
         </div>
-      </section>
+      </div>
     </div>
-		<?php astra_primary_content_bottom(); ?>
-
-	</div><!-- #primary -->
-
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+  </section>
+</div>
 
 <?php get_footer(); ?>

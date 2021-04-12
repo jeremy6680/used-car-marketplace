@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: User-Car Marketplace
+Plugin Name: Used-Car Marketplace
 Description: Plugin to add a used-car marketplace to your website
 Author: Jeremy Marchandeau
 Author URI: https://jeremymarchandeau.com
@@ -15,9 +15,9 @@ class UsedCarMarketPlace {
 
   const FIELD_PREFIX = 'wpfc_';
 
-  const CPT_SLUG = 'car'; // this is just an example with a custom post types called "docs" - replace it so that it suits your needs
+  const CPT_SLUG = 'car'; 
 
-  const TEXT_DOMAIN = 'wpfc-cars'; // here again, that's just an example with a CPT called "docs" 
+  const TEXT_DOMAIN = 'wpfc-cars';
 
   public static function getInstance() {
     if (self::$instance == NULL) {
@@ -28,9 +28,10 @@ class UsedCarMarketPlace {
   }
 
   private function __construct() {
+
     // initialize custom post types
 
-    //include( 'includes/init.php' );
+    include( 'includes/init.php' );
 
     //include( 'includes/register-plugins.php' );
 
@@ -40,7 +41,7 @@ class UsedCarMarketPlace {
 
     add_action('init', 'UsedCarMarketPlace::register_post_type' );
 
-    //add_action('init', array( $this, 'custom_taxonomies' ) );
+    add_action('init', array( $this, 'custom_taxonomies' ) );
 
     add_filter( 'rwmb_meta_boxes', array( $this, 'custom_fields' ) );
 
@@ -55,7 +56,7 @@ class UsedCarMarketPlace {
    * Defined statically for use in activation hook
    */
   public static function register_post_type() {
-      require('custom-post-types/custom-post-type.php'); 
+      require('includes/custom/custom-post-type.php'); 
   }
 
   /**
@@ -69,15 +70,15 @@ class UsedCarMarketPlace {
   /**
    * Create custom taxonomies
    */
-  /*function custom_taxonomies() {
-    require('custom-taxonomies/custom-taxonomies.php'); 
-  }*/
+  function custom_taxonomies() {
+    require('includes/custom/custom-taxonomies.php'); 
+  }
 
   /**
    * Create custom fields
    */  
   function custom_fields( $meta_boxes ) {
-    require('custom-fields/custom-fields.php'); 
+    require('includes/custom/custom-fields.php'); 
   }
 
   /**
@@ -93,6 +94,17 @@ class UsedCarMarketPlace {
 
       // failing that, use the bundled copy
       return plugin_dir_path(__FILE__) . 'templates/single-' . self::CPT_SLUG . '.php';
+  }
+
+    if(is_archive( self::CPT_SLUG)) {
+      if (file_exists( get_stylesheet_directory() . 'archive-' . self::CPT_SLUG . '.php')) {
+
+          return get_stylesheet_directory() . 'archive-' . self::CPT_SLUG . '.php';
+      }
+
+      // failing that, use the bundled copy
+      return plugin_dir_path(__FILE__) . 'templates/archive-' . self::CPT_SLUG . '.php';
+    
   }
   
   return $template;   

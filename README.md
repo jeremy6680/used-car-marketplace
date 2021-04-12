@@ -1,4 +1,4 @@
-# User-Car MarketPlace Plugin
+# Used-Car MarketPlace Plugin
 
 ## Notes
 
@@ -33,3 +33,17 @@ You can enter a new Car to sell on the front end.
 
 To do that, create a new page and add the following shortcode:
 `[mb_frontend_form id='product-details' post_fields='title']`
+
+For the frontend, you need to add your code in `assets/src/script.js` and `assets/src/style.css`.
+
+Then you can compile your assets:
+
+```
+$ npm run build
+```
+
+In order to optimize the files for production, you may execute the following command:
+
+```
+$ npm run prod
+```

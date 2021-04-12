@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd777537eb53986beeb05414ed0c4617",
+    "content-hash": "fcb347f11de7065acccd1e375eca8f23",
     "packages": [
         {
             "name": "composer/installers",
@@ -155,6 +155,18 @@
             "time": "2021-01-14T11:07:16+00:00"
         },
         {
+            "name": "meta-box/meta-box-aio",
+            "version": "master",
+            "dist": {
+                "type": "zip",
+                "url": "https://metabox.io/?action=download&product=meta-box-aio&api_key=c836df8621e5a80aa6ec8a4ded39d779"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
             "name": "wpackagist-plugin/meta-box",
             "version": "dev-trunk",
             "source": {
@@ -178,7 +190,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wpackagist-plugin/meta-box": 20
+        "wpackagist-plugin/meta-box": 20,
+        "meta-box/meta-box-aio": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

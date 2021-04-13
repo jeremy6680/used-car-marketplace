@@ -11,12 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 <div class="container mx-auto px-4"> 
-
+<?php
+$currency = rwmb_meta( 'currency', ['object_type' => 'setting'], 'General Settings' );
+$symbol = isset( $currency['symbol'] ) ? $currency['symbol'] : '';
+$position = isset( $currency['position_of_the_symbol'] ) ? $currency['position_of_the_symbol'] : '';
+$units = rwmb_meta( 'units', ['object_type' => 'setting'], 'General Settings' );
+$distance = isset( $units['distance'] ) ? $units['distance'] : '';
+$length_and_width = isset( $units['length_and_width'] ) ? $units['length_and_width'] : '';
+$weight = isset( $units['weight'] ) ? $units['weight'] : '';
+?>
   <section class="py-12 px-4">
     <div class="flex flex-wrap -mx-8">
       <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
         <h2 class="text-4xl mb-2 font-semibold font-heading"><?php the_title(); ?></h2>
-        <p class="mb-6"><?php echo rwmb_meta( 'price' ); ?> € <?php _e( '(Ex. Tax)', 'wpfc-cars' ) ?></p>
+        <p class="mb-6"><?php if ($position == 'before'): echo $symbol; endif;?><?php echo rwmb_meta( 'price' ); ?> <?php if ($position == 'after'): echo $symbol; endif;?> <?php _e( '(Ex. Tax)', 'wpfc-cars' ) ?></p>
         <p class="mb-8 text-gray-400 leading-relaxed"><?php echo rwmb_meta( 'description' ); ?></p>
         <table class="w-full mb-6">
           <tbody>
@@ -33,19 +41,19 @@ get_header(); ?>
               <td class="text-right"><?php echo rwmb_meta( 'year' ); ?></td>
             </tr>
             <tr class="border-t">
-              <td class="py-3">KM</td>
+              <td class="py-3">Distance (<?php _e( 'in', 'wpfc-cars' ) ?> <?php echo $distance; ?>)</td>
               <td class="text-right"><?php echo rwmb_meta( 'km' ); ?></td>
             </tr>
             <tr class="border-t">
-              <td class="py-3">Weight</td>
+              <td class="py-3">Weight (<?php _e( 'in', 'wpfc-cars' ) ?> <?php echo $weight; ?>)</td>
               <td class="text-right"><?php echo rwmb_meta( 'weight' ); ?></td>
             </tr>
             <tr class="border-t">
-              <td class="py-3">Length</td>
+              <td class="py-3">Length (<?php _e( 'in', 'wpfc-cars' ) ?> <?php echo $length_and_width; ?>)</td>
               <td class="text-right"><?php echo rwmb_meta( 'length' ); ?></td>
             </tr>
             <tr class="border-t">
-              <td class="py-3">Width</td>
+              <td class="py-3">Width (<?php _e( 'in', 'wpfc-cars' ) ?> <?php echo $length_and_width; ?>)</td>
               <td class="text-right"><?php echo rwmb_meta( 'width' ); ?></td>
             </tr>
           </tbody>
@@ -71,4 +79,4 @@ get_header(); ?>
   </section>
 </div>
 
-<?php get_footer(); ?>
+<?php get_footer();

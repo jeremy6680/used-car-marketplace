@@ -45,7 +45,8 @@ class UCMP_GridBuilder {
       $symbol = isset( $currency['symbol'] ) ? $currency['symbol'] : '';
       $position = isset( $currency['position_of_the_symbol'] ) ? $currency['position_of_the_symbol'] : '';
       ?>
-	    <div class="w-full lg:w-1/4 px-4 mb-8">
+
+	    <div class="w-full lg:w-1/2 px-4 mb-8">
 	      <div class="relative rounded shadow">
 	        <span class="absolute py-1 px-3 m-2 text-sm text-white font-semibold bg-green-600 rounded"><?php rwmb_the_value( 'condition' ); ?></span>
 	        <img src="<?php echo $image['full_url']; ?>" alt="">

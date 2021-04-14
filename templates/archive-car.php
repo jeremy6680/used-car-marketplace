@@ -10,18 +10,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-
-
-<?php echo do_shortcode('[wpgb_facet id="1" grid="cars_to_sell"]'); ?>
-<?php echo do_shortcode('[wpgb_facet id="2" grid="cars_to_sell"]'); ?>
-<?php echo do_shortcode('[wpgb_facet id="3" grid="cars_to_sell"]'); ?>
-
-
-<div class="container mx-auto px-4"> 
-      <section class="py-12 px-4">
-        <h2 class="text-4xl text-center mb-8 font-semibold font-heading"><?php _e( 'Our second hand cars', 'wpfc-cars' ) ?></h2>
-          <?php echo do_shortcode('[wpgb_template id="cars_to_sell"]'); ?>
-      </section>
-    </div>
-
+ <div class="container mx-auto px-4"> 
+    
+      <div>
+	      <section class="py-12 px-4 text-center">
+	        <div class="w-full max-w-2xl mx-auto">
+	          <h2 class="text-5xl mt-2 mb-6 leading-tight font-semibold font-heading"><?php _e( 'Our second hand cars', 'wpfc-cars' ) ?></h2>
+	        </div>
+	      </section>
+      </div>
+    
+      <div class="flex flex-wrap -mx-4 -mb-4 md:mb-0">
+        <div class="w-full md:w-2/3 px-4 mb-4 md:mb-0">
+	      <section class="px-4">
+	          <?php echo do_shortcode('[wpgb_template id="cars_to_sell"]'); ?>
+	      </section>
+    	</div>
+        <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
+	      <div class="mb-6">
+	        <label class="block text-gray-700 text-sm font-bold mb-2" for="">Label for text</label>
+	        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-50 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" name="field-name" placeholder="Write a text">
+	      </div>
+      
+	      <div class="mb-6">
+	        <?php echo do_shortcode('[wpgb_facet id="1" grid="cars_to_sell"]'); ?>
+	      </div>
+	      
+	      <div class="mb-6">
+	        <?php echo do_shortcode('[wpgb_facet id="2" grid="cars_to_sell"]'); ?>
+	      </div>
+	       <div class="mb-6">
+	        <?php echo do_shortcode('[wpgb_facet id="3" grid="cars_to_sell"]'); ?>
+	      </div>
+        </div>
+      </div>
 <?php get_footer();

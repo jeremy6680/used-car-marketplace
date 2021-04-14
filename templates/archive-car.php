@@ -26,21 +26,21 @@ get_header(); ?>
 	          <?php echo do_shortcode('[wpgb_template id="cars_to_sell"]'); ?>
 	      </section>
     	</div>
-        <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
-	      <div class="mb-6">
-	        <label class="block text-gray-700 text-sm font-bold mb-2" for="">Label for text</label>
-	        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-50 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" name="field-name" placeholder="Write a text">
-	      </div>
-      
+        <div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">      
 	      <div class="mb-6">
 	        <?php echo do_shortcode('[wpgb_facet id="1" grid="cars_to_sell"]'); ?>
 	      </div>
-	      
+	       <div class="mb-6">
+	        <?php echo do_shortcode('[wpgb_facet id="4" grid="cars_to_sell"]'); ?>
+	      </div>
+	       <div class="mb-6">
+	        <?php echo do_shortcode('[wpgb_facet id="5" grid="cars_to_sell"]'); ?>
+	      </div>
 	      <div class="mb-6">
 	        <?php echo do_shortcode('[wpgb_facet id="2" grid="cars_to_sell"]'); ?>
 	      </div>
 	       <div class="mb-6">
-	        <?php echo do_shortcode('[wpgb_facet id="3" grid="cars_to_sell"]'); ?>
+	        <?php echo do_shortcode('[wpgb_facet id="6" grid="cars_to_sell"]'); ?>
 	      </div>
         </div>
       </div>

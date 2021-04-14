@@ -30,14 +30,15 @@ class UsedCarMarketPlace {
   private function __construct() {
 
     // initialize custom post types
-
     include( 'includes/init.php' );
 
-    //include( 'includes/register-plugins.php' );
+    // initialize custom post types
+    include( 'includes/libs/class-ucmp-gridbuilder.php' );
 
+    // include( 'includes/register-plugins.php' );
     require_once( plugin_dir_path( __FILE__) . "/includes/libs/class-tgm-plugin-activation.php" );
 
-   //add_action( 'tgmpa_register', 'register_required_plugins' );
+    add_action( 'tgmpa_register', 'register_required_plugins' );
 
     add_action('init', 'UsedCarMarketPlace::register_post_type' );
 
@@ -47,7 +48,7 @@ class UsedCarMarketPlace {
 
     add_filter( 'rwmb_meta_boxes', array( $this, 'settings_custom_fields' ) );
 
-    add_filter( 'mb_settings_pages', array( $this, 'add_settings_page' ) );
+    add_filter( 'mb_settings_pages', array( $this, 'add_settings_page' ) ); 
 
     add_action( 'template_include', array( $this, 'add_cpt_template' ) );
 
@@ -137,11 +138,11 @@ class UsedCarMarketPlace {
   function add_styles_scripts() {
     require('includes/front/enqueue.php');     
   }
-
+  
 
 }
 
 UsedCarMarketPlace::getInstance();
 
 register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
-register_activation_hook( __FILE__, 'UsedCarMarketPlace::activate' );
+register_activation_hook( __FILE__, 'UsedCarMarketPlace::activate' );  
